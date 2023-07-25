@@ -1,0 +1,71 @@
+server:
+  port: 8080
+  compression:
+    enabled: true
+    mime-types: application/json
+    min-response-size: 2048
+  error:
+    include-exception: true
+    include-stacktrace: always
+    include-binding-errors: always
+    include-message: always
+
+spring:
+  application:
+    name: alquiler-api
+  main:
+    banner-mode: off
+    allow-bean-definition-overriding: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  thymeleaf:
+    check-template: false
+    check-template-location: false
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${URL_DB}
+    username: ${USER_DB}
+    password: ${PASSWORD_DB}
+    hikari:
+      connection-timeout: 50000
+      max-lifetime: 900000
+      auto-commit: false
+      data-source-properties:
+        rewriteBatchedStatements: true
+        prepStmtCacheSize: 500
+        cachePrepStmts: true
+        useServerPrepStmts: true
+        prepStmtCacheSqlLimit: 2048
+  jpa:
+    show-sql: false
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    properties:
+      hibernate.jdbc.batch_size: 1000
+      hibernate.order_inserts: true
+      hibernate.order_updates: true
+      hibernate.query.fail_on_pagination_over_collection_fetch: true
+      hibernate.query.in_clause_parameter_padding: true
+      hibernate.query.plan_cache_max_size: 4096
+      hibernate.globally_quoted_identifiers: true
+      hibernate.enable_lazy_load_no_trans: true
+  devtools:
+    livereload.enabled: true
+
+management:
+  endpoints:
+    web.base-path: /console
+    web.exposure.include: "*"
+
+logging:
+  level:
+    org.springframework.transaction.interceptor: TRACE
+
+springdoc:
+  api-docs.resolve-schema-properties: true
