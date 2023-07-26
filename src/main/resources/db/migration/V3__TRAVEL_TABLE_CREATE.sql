@@ -4,7 +4,7 @@ CREATE TABLE viaje
     empleado_id   INTEGER                                  NOT NULL,
     carro_id      INTEGER                                  NOT NULL,
     data_retirada date                                     NOT NULL,
-    data_entrega  date                                     NOT NULL,
+    data_entrega  date                                     ,
     CONSTRAINT pk_viaje PRIMARY KEY (id)
 );
 
