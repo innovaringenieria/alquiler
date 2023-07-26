@@ -29,6 +29,6 @@ public class CarGatewayImpl implements CarGateway {
 
     @Override
     public List<Car> retireesCar() {
-        return null;
+        return mapper.toDto(repository.retireesCar());
     }
 }

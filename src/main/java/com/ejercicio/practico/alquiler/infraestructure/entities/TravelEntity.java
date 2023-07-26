@@ -33,6 +33,6 @@ public class TravelEntity implements Serializable {
     @Column(name = "data_retirada", nullable = false)
     private LocalDate retirementDate;
 
-    @Column(name = "data_entrega", nullable = false)
+    @Column(name = "data_entrega")
     private LocalDate deliveryDate;
 }
