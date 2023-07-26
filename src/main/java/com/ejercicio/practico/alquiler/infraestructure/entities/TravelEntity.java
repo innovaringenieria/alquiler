@@ -1,4 +1,4 @@
-package com.ejercicio.practico.alquiler.infraestructure.persistence;
+package com.ejercicio.practico.alquiler.infraestructure.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

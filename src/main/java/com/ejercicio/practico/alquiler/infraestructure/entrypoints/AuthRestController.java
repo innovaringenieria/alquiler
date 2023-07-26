@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("api/v1")
 @RequiredArgsConstructor
-public class AuthController {
+public class AuthRestController {
 
     private final JwtEncoder encoder;
 
