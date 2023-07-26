@@ -9,12 +9,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.text.NumberFormat;
 
-@SpringBootApplication(
-        exclude = {
-                org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class,
-                org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration.class
-        }
-)
+@SpringBootApplication
 @EnableTransactionManagement
 @Log4j2
 public class AlquilerApplication {
