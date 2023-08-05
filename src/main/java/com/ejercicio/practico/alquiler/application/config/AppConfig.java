@@ -49,15 +49,11 @@ public class AppConfig implements WebMvcConfigurer {
         return validatorFactoryBean;
     }
 
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                        .allowedOrigins("*")
-                        .allowedHeaders("*");
-            }
-        };
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**").allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowedOrigins("http://localhost:4200","http://localhost:8080");
+        WebMvcConfigurer.super.addCorsMappings(registry);
     }
 }
